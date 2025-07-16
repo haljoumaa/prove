@@ -15,10 +15,10 @@ print("IMAP_PASSWORD:", os.getenv("IMAP_PASSWORD"))
 print("FINANCE_SENDER:", os.getenv("FINANCE_SENDER"))
 
 # --- Configuration ---
-IMAP_HOST = os.getenv('webmail.ent3r.no')
-IMAP_USER = os.getenv('Bergen.hvl@ent3r.no')
-IMAP_PASSWORD = os.getenv('5YqfKwvPlHU')
-FINANCE_SENDER = os.getenv('FINANCE_SENDER', 'may.sandsta@hvl.no')
+IMAP_HOST = os.getenv('')
+IMAP_USER = os.getenv('')
+IMAP_PASSWORD = os.getenv('')
+FINANCE_SENDER = os.getenv('FINANCE_SENDER', '')
 DOWNLOAD_FOLDER = os.path.abspath(
     os.path.join(os.path.dirname(__file__), os.pardir, 'pictures')
 )
