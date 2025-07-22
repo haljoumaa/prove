@@ -28,8 +28,8 @@ A web-based platform allowing mentors to independently register hours, manage sh
 
 
 
->The system can be executed via a single CLI command. Configuration, including reference file locations and email access credentials, is handled via environment variables.
->python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+>The system can be executed via a single CLI command. Configuration, including reference file locations and email access credentials, is handled via environment variables;
+> python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
 
 
 
