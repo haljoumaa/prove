@@ -1,11 +1,12 @@
 # PROVE  
-**Payroll Review & OCR Verification Engine**
+_**Payroll Review & OCR Verification Engine**_
 
 ---
 
 ## Overview
 
 **PROVE** is an automated payroll validation platform that eliminates manual cross-checking by extracting reported hours directly from scanned documents and emails, then validating them against authoritative internal records. The system uses a modular pipeline—comprising automated email ingestion, OCR-based extraction (EasyOCR with Tesseract fallback), and multi-stage data validation—to deliver a fast, transparent, and fully auditable process. PROVE’s ongoing refactor introduces self-service digital logging for mentors, further removing human bottlenecks and enabling real-time payroll oversight. Designed for extensibility and compliance, PROVE reduces error rates, accelerates payroll cycles, and establishes a new standard for scalable, transparent payroll management.
+
 ---
 
 ## Features
