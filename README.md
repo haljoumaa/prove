@@ -1,36 +1,45 @@
-# PROVE
-
+# PROVE  
 **Payroll Review & OCR Verification Engine**
 
 ---
 
-## What is PROVE?
+## Overview
 
-PROVE automates payroll document review using OCR. It extracts values from scanned payslips or payroll reports and checks them against internal records, making it easier to spot errors and inconsistencies in payroll processing.
-
----
-
-## Features
-
-- OCR data extraction from PDF/image payroll documents
-- Configurable validation against CSV/system exports
-- Discrepancy reporting (CSV/JSON)
-- Audit logging for compliance and traceability
-- Modular architecture: ingestion, extraction, validation, reporting
+**PROVE** automates payroll validation by extracting reported hours from scanned images or PDF attachments and verifying them against internal reference records. The system combines EasyOCR, Tesseract, and structured validation to ensure fast, repeatable, and auditable payroll checks.
 
 ---
 
-## Getting Started
+## 📌 Features
+
+- ✅ **Automatic Email Scraping & Image Extraction**: Downloads payroll reports from finance emails within a specified period.
+- ✅ **OCR-Based Data Extraction**: Reads employee names and reported hours directly from images using EasyOCR and Tesseract.
+- ✅ **Cross-Verification with Reference Data**: Compares extracted data to a trusted CSV reference.
+- ✅ **Discrepancy Reporting**: Immediate terminal outputs highlighting approvals, discrepancies, or data errors.
+- ✅ **Simple CLI Interface**: Single-command pipeline from email ingestion to verification.
+- ✅ **Modular Codebase**: Cleanly separated ingestion and processing logic for maintainability.
+
+---
+
+## 🚀 Quickstart
 
 ### Requirements
 
-- Python >= 3.9
-- Tesseract OCR installed and in PATH
-- See `requirements.txt` for Python dependencies
+- Python ≥ 3.9
+- Tesseract OCR installed and accessible via PATH
+- Install Python packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### Setup
+---
 
-```sh
-git clone https://github.com/your-org/PROVE.git
-cd PROVE
-pip install -r requirements.txt
+### Folder Structure
+
+reference_data/ # Contains the internal reference CSV (e.g., mars.csv)
+raw_pictures/ # Stores downloaded payroll report images
+ingestion/ # Email fetching and image extraction modules
+processing/ # Verification and analysis modules
+
+how to run 
+
+python run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD

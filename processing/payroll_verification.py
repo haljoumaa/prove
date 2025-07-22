@@ -1,13 +1,10 @@
 import os
 import re
 import logging
-import cv2
-import numpy as np
 import pandas as pd
 import pytesseract
 import easyocr
 from difflib import get_close_matches, SequenceMatcher
-from typing import Optional
 from typing import Union 
 
 MODEL_STORAGE_PATH = '~/.EasyOCR/model/'
@@ -209,42 +206,153 @@ class TimesheetProcessor:
         logging.info("----------------------------\n")
 
 
-
-def main():
+def verify_payroll(reference_csv: str = None, image_folder: str = None):
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # 1) Setup paths
-    csv_path = os.path.join(script_dir, "..", "csv", "mars.csv")
-    image_folder = os.path.join(script_dir,".." ,"pictures")
+    if reference_csv is None:
+        reference_csv = os.path.join(script_dir, "..", "reference_data", "mars.csv")
+    if image_folder is None:
+        image_folder = os.path.join(script_dir, "..", "raw_pictures")
 
-    # 2) Initialize the TimesheetProcessor
     try:
-        processor = TimesheetProcessor(csv_path=csv_path, gpu=False)
-    except FileNotFoundError as e:
-        logging.error(f"CSV file error: {e}")
-        return
+        processor = TimesheetProcessor(csv_path=reference_csv, gpu=False)
     except Exception as e:
         logging.error(f"Failed to initialize TimesheetProcessor: {e}")
         return
 
-    # 3) Get all .png, .jpg, or .jpeg from 'pictures' folder
     if not os.path.isdir(image_folder):
         logging.error(f"Image folder not found: {image_folder}")
         return
 
-    image_files = [f for f in os.listdir(image_folder) 
-                   if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    image_files = [f for f in os.listdir(image_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 
     if not image_files:
-        logging.warning("No .png, .jpg, or .jpeg files found in 'pictures' folder.")
+        logging.warning("No image files found.")
         return
 
-    # 4) Process each image
     for filename in image_files:
         image_path = os.path.join(image_folder, filename)
         logging.info(f"Processing: {image_path}")
         processor.process_image(image_path)
 
 
+def main():
+    verify_payroll()
+
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def main():
+#     script_dir = os.path.dirname(os.path.abspath(__file__))
+
+#     # 1) Setup paths
+#     csv_path = os.path.join(script_dir, "..", "reference_data", "mars.csv")
+#     image_folder = os.path.join(script_dir,".." ,"raw_pictures")
+
+#     # 2) Initialize the TimesheetProcessor
+#     try:
+#         processor = TimesheetProcessor(csv_path=csv_path, gpu=False)
+#     except FileNotFoundError as e:
+#         logging.error(f"CSV file error: {e}")
+#         return
+#     except Exception as e:
+#         logging.error(f"Failed to initialize TimesheetProcessor: {e}")
+#         return
+
+#     # 3) Get all .png, .jpg, or .jpeg from 'pictures' folder
+#     if not os.path.isdir(image_folder):
+#         logging.error(f"Image folder not found: {image_folder}")
+#         return
+
+#     image_files = [f for f in os.listdir(image_folder) 
+#                    if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+
+#     if not image_files:
+#         logging.warning("No .png, .jpg, or .jpeg files found in 'pictures' folder.")
+#         return
+
+#     # 4) Process each image
+#     for filename in image_files:
+#         image_path = os.path.join(image_folder, filename)
+#         logging.info(f"Processing: {image_path}")
+#         processor.process_image(image_path)
+
+
+# if __name__ == "__main__":
+#     main()

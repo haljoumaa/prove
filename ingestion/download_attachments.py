@@ -1,14 +1,14 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
-from ingestion.email_fetcher import get_finance_emails_in_period
+from ingestion.fetch_emails import get_finance_emails_in_period
 
 import logging
 from email.header import decode_header
 
 # Destination folder
 PICTURE_FOLDER = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), os.pardir, 'pictures')
+    os.path.join(os.path.dirname(__file__), os.pardir, 'raw_pictures')
 )
 
 # Logging setup
@@ -83,19 +83,134 @@ def extract_attachments(email_msg):
     logger.info(f"✅ Finished email ({subject}): {count} file(s) downloaded.")
     return count
 
-if __name__ == "__main__":
-    start_date = input("Start date (YYYY-MM-DD): ").strip()
-    end_date = input("End date (YYYY-MM-DD): ").strip()
 
+def download_pics_main(start_date: str, end_date: str):
     emails = get_finance_emails_in_period(start_date, end_date)
     if not emails:
-        print("❌ No valid finance emails found in period.")
-        exit(0)
-
+        logger.warning("❌ No valid finance emails found in period.")
+        return
     total_downloaded = 0
     for idx, email_msg in enumerate(emails, 1):
         logger.info(f"📧 Processing email {idx}/{len(emails)}...")
         count = extract_attachments(email_msg)
         total_downloaded += count
+    logger.info(f"\n✅ All done. Total files downloaded: {total_downloaded}")
 
-    print(f"\n✅ All done. Total files downloaded: {total_downloaded}")
+if __name__ == "__main__":
+    start_date = input("Start date (YYYY-MM-DD): ").strip()
+    end_date = input("End date (YYYY-MM-DD): ").strip()
+    download_pics_main(start_date, end_date)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# if __name__ == "__main__":
+#     start_date = input("Start date (YYYY-MM-DD): ").strip()
+#     end_date = input("End date (YYYY-MM-DD): ").strip()
+
+#     emails = get_finance_emails_in_period(start_date, end_date)
+#     if not emails:
+#         print("❌ No valid finance emails found in period.")
+#         exit(0)
+
+#     total_downloaded = 0
+#     for idx, email_msg in enumerate(emails, 1):
+#         logger.info(f"📧 Processing email {idx}/{len(emails)}...")
+#         count = extract_attachments(email_msg)
+#         total_downloaded += count
+
+#     print(f"\n✅ All done. Total files downloaded: {total_downloaded}")
