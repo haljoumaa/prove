@@ -5,8 +5,7 @@
 
 ## Overview
 
-**PROVE** automates payroll validation by extracting reported hours from scanned images or PDF attachments and verifying them against internal reference records. The system combines EasyOCR, Tesseract, and structured validation to ensure fast, repeatable, and auditable payroll checks.
-
+**PROVE** is an automated payroll validation platform that eliminates manual cross-checking by extracting reported hours directly from scanned documents and emails, then validating them against authoritative internal records. The system uses a modular pipeline—comprising automated email ingestion, OCR-based extraction (EasyOCR with Tesseract fallback), and multi-stage data validation—to deliver a fast, transparent, and fully auditable process. PROVE’s ongoing refactor introduces self-service digital logging for mentors, further removing human bottlenecks and enabling real-time payroll oversight. Designed for extensibility and compliance, PROVE reduces error rates, accelerates payroll cycles, and establishes a new standard for scalable, transparent payroll management.
 ---
 
 ## Features
