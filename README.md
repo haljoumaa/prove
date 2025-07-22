@@ -9,23 +9,17 @@ _**Payroll Review & OCR Verification Engine**_
 
 ---
 
-## Features
+## System Overview
 
-- **End-to-End Payroll Data Pipeline**: Automates payroll report retrieval, OCR-based extraction, cross-checking, and discrepancy reporting.
-- **Automated Email and Attachment Handling**: Scrapes finance emails by period and extracts relevant payroll images and files.
--	**Multi-Engine OCR Extraction**: Uses both EasyOCR and Tesseract to extract names and hours from diverse document formats.
--	**Reference-Based Verification**: Cross-validates extracted results against a trusted CSV dataset, flagging inconsistencies.
--	**Real-Time Discrepancy Reporting**: Immediately identifies approvals, errors, and mismatches via terminal summaries.
--	**Single-Command CLI Operation**: Runs the entire workflow through a streamlined, user-facing command-line interface.
+The architecture is designed for robustness, maintainability, and clear separation of concerns; each subsystem can be independently maintained or upgraded.
+- **End-to-End Payroll Data Pipeline**: Automates retrieval of payroll reports from finance emails and processes all steps from ingestion to verification in a single command-line operation.
+- **Configurable Ingestion Module**: Filters and downloads emails and attachments based on specified criteria (date, sender, subject).
+-	**Attachment Handler**: Normalizes and stores incoming documents in supported formats (PDF, JPEG, PNG).
+-	**Dual-Engine OCR Processor**: Integrates EasyOCR and Tesseract for reliable extraction of names and hours across varied document layouts.
+-	**Reporting Engine**: Provides immediate, actionable feedback via terminal summaries, clearly identifying approvals, errors, and mismatches.
+-	**Reference-Based Validation**: Cross-checks extracted data against a trusted CSV dataset, systematically flagging discrepancies or anomalies.
+-	**Fully Modular Design**: Each stage, ingestion, attachment handling, OCR, validation, and reporting operates independently, allowing targeted improvements and reliable maintenance.
 
-## Architecture
-
-PROVE is structured as a modular pipeline, enforcing separation of concerns for robustness and testability. Each subsystem can be independently maintained or upgraded.
--	**Ingestion Module**: Filters and downloads emails and attachments by configurable rules (date, sender, subject).
--	**Attachment Handler**: Normalizes and stores incoming payroll documents from supported formats (PDF, JPEG, PNG).
--	**OCR Processor**: Integrates EasyOCR and Tesseract for dual-path recognition, addressing layout variability.
--	**Validation Module**: Matches extracted data with reference records and flags all discrepancies or anomalies.
--	**Reporting Engine**: Consolidates results, providing actionable summaries and immediate feedback to the user.
  
 ## Roadmap
 
