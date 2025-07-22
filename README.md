@@ -5,7 +5,7 @@ _**Payroll Review & OCR Verification Engine**_
 
 ## Overview
 
-**PROVE** is an automated payroll validation platform that eliminates manual cross-checking by extracting reported hours directly from scanned documents and emails, then validating them against authoritative internal records. The system uses a modular pipeline, comprising automated email ingestion, OCR-based extraction (EasyOCR with Tesseract fallback), and data validation to deliver a fast, transparent, and fully auditable process. PROVE originated from my role as project manager at ENT3R, where I routinely spent an average of 45 minutes processing and approving payrolls—a clear inefficiency this platform is designed to resolve. PROVE’s ongoing refactor introduces self-service digital logging for mentors, further removing human bottlenecks and enabling real-time payroll oversight. Designed for extensibility and compliance, PROVE reduces error rates, accelerates payroll cycles, and establishes a new standard for scalable, transparent payroll management.
+**PROVE** is an automated payroll validation platform that eliminates manual cross-checking by extracting reported hours directly from scanned documents and emails, then validating them against authoritative internal records. The system uses a modular pipeline, comprising automated email ingestion, OCR-based extraction (EasyOCR with Tesseract fallback), and data validation to deliver a fast, transparent, and fully auditable process. PROVE originated from my role as project manager at ENT3R, where I routinely spent an average of 45 minutes processing and approving payrolls. A clear inefficiency this platform is designed to resolve. Designed for extensibility and compliance, PROVE reduces error rates, accelerates payroll cycles, and establishes a new standard for scalable, transparent payroll management.
 
 ---
 
@@ -30,7 +30,7 @@ PROVE’s architecture is fully modular, separating email ingestion, attachment 
 
 ## Roadmap
 
-- **PROVE Portal (Coming Soon):** A self-service web platform enabling mentors and employees to log their own hours, review submissions, and manage corrections directly. The portal will integrate with the backend for real-time validation and auditability.
+- **PROVE Portal (Coming Soon):** A self-service web platform enabling mentors and employees to log their own hours, review submissions, and manage corrections directly. The portal will integrate with the backend for real-time validation and auditability. PROVE’s ongoing refactor introduces self-service digital logging for mentors, further removing human bottlenecks and enabling real-time payroll oversight.
 - Integration with cloud storage and scalable databases.
 - Enhanced anomaly detection and pattern analysis.
 - Automated escalation for unresolved discrepancies.
