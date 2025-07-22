@@ -11,29 +11,26 @@ _**Payroll Review & OCR Verification Engine**_
 
 ## Features
 
-- **Automatic Email Scraping & Image Extraction**: Downloads payroll reports from finance emails within a specified period.  
-- **OCR‑Based Data Extraction**: Reads employee names and reported hours directly from images using EasyOCR and Tesseract.  
-- **Cross‑Verification with Reference Data**: Compares extracted data to a trusted CSV reference.  
-- **Discrepancy Reporting**: Immediate terminal outputs highlighting approvals, discrepancies, or data errors.  
-- **Simple CLI Interface**: Single‑command pipeline from email ingestion to verification.  
-- **Modular Codebase**: Cleanly separated ingestion and processing logic for maintainability.  
+- **End-to-End Payroll Data Pipeline**: Automates payroll report retrieval, OCR-based extraction, cross-checking, and discrepancy reporting.
+- **Automated Email and Attachment Handling**: Scrapes finance emails by period and extracts relevant payroll images and files.
+-	**Multi-Engine OCR Extraction**: Uses both EasyOCR and Tesseract to extract names and hours from diverse document formats.
+-	**Reference-Based Verification**: Cross-validates extracted results against a trusted CSV dataset, flagging inconsistencies.
+-	**Real-Time Discrepancy Reporting**: Immediately identifies approvals, errors, and mismatches via terminal summaries.
+-	**Single-Command CLI Operation**: Runs the entire workflow through a streamlined, user-facing command-line interface.
 
 ## Architecture
 
-PROVE’s architecture is fully modular, separating email ingestion, attachment extraction, OCR processing, and data validation into independent components. This ensures that each part of the pipeline can be tested, improved, or replaced without impacting the rest of the system.
-
-- **Email Ingestion:** Downloads relevant messages and attachments based on date, sender, and subject filters.
-- **Attachment Processing:** Extracts and stores scanned payroll reports from multiple formats (PDF, JPEG, PNG, etc).
-- **OCR Engine:** Utilizes both EasyOCR and Tesseract for robust recognition across varied document layouts.
-- **Validation Engine:** Compares extracted names/hours to a reference CSV, flags mismatches, and outputs results.
-- **Reporting:** Summarizes findings in the terminal, highlighting both approvals and any discrepancies for further review.
-
+PROVE is structured as a modular pipeline, enforcing separation of concerns for robustness and testability. Each subsystem can be independently maintained or upgraded.
+-	**Ingestion Module**: Filters and downloads emails and attachments by configurable rules (date, sender, subject).
+-	**Attachment Handler**: Normalizes and stores incoming payroll documents from supported formats (PDF, JPEG, PNG).
+-	**OCR Processor**: Integrates EasyOCR and Tesseract for dual-path recognition, addressing layout variability.
+-	**Validation Module**: Matches extracted data with reference records and flags all discrepancies or anomalies.
+-	**Reporting Engine**: Consolidates results, providing actionable summaries and immediate feedback to the user.
+ 
 ## Roadmap
 
-- **PROVE Portal (Coming Soon):** A self-service web platform enabling mentors and employees to log their own hours, review submissions, and manage corrections directly. The portal will integrate with the backend for real-time validation and auditability. PROVE’s ongoing refactor introduces self-service digital logging for mentors, further removing human bottlenecks and enabling real-time payroll oversight.
-- Integration with cloud storage and scalable databases.
-- Enhanced anomaly detection and pattern analysis.
-- Automated escalation for unresolved discrepancies.
+- **PROVE Portal (Coming Soon):** Roadmap
+A web-based platform allowing mentors to independently register hours, manage shift changes, review timesheets, and monitor their own payroll data. By shifting data entry and verification to the users themselves, the portal eliminates the need for manual CSV handling and intermediary data processing. This transition enables near-complete automation of the payroll workflow, reduces administrative bottlenecks, and increases transparency and auditability across the system..
 
 ---
 
@@ -41,7 +38,6 @@ PROVE’s architecture is fully modular, separating email ingestion, attachment 
 
 The system can be executed via a single CLI command. Configuration, including reference file locations and email access credentials, is handled via environment variables.
 
->
 >python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
->
+
 
