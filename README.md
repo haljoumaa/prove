@@ -41,11 +41,7 @@ PROVE’s architecture is fully modular, separating email ingestion, attachment 
 
 The system can be executed via a single CLI command. Configuration, including reference file locations and email access credentials, is handled via environment variables.
 
-Instructions and usage details will follow in upcoming sections.
-
----
-
-## License
-
-PROVE is released under an MIT license. See `LICENSE` for details.
+>
+>python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+>
 
