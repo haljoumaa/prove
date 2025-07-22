@@ -26,12 +26,11 @@ The architecture is designed for robustness, maintainability, and clear separati
 - **PROVE Portal (Coming Soon):** Roadmap
 A web-based platform allowing mentors to independently register hours, manage shift changes, review timesheets, and monitor their own payroll data. By shifting data entry and verification to the users themselves, the portal eliminates the need for manual CSV handling and intermediary data processing. This transition enables near-complete automation of the payroll workflow, reduces administrative bottlenecks, and increases transparency and auditability across the system..
 
----
 
-## Getting Started
 
+>
 The system can be executed via a single CLI command. Configuration, including reference file locations and email access credentials, is handled via environment variables.
-
->python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+>>python3 run_prove.py --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+>
 
 
