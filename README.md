@@ -23,8 +23,7 @@ The architecture is designed for robustness, maintainability, and clear separati
  
 ## Roadmap
 
-- **PROVE Portal (Coming Soon):** Roadmap
-A web-based platform allowing mentors to independently register hours, manage shift changes, review timesheets, and monitor their own payroll data. By shifting data entry and verification to the users themselves, the portal eliminates the need for manual CSV handling and intermediary data processing. This transition enables near-complete automation of the payroll workflow, reduces administrative bottlenecks, and increases transparency and auditability across the system..
+- **PROVE Portal (Coming Soon):** A web-based platform allowing mentors to independently register hours, manage shift changes, review timesheets, and monitor their own payroll data. By shifting data entry and verification to the users themselves, the portal eliminates the need for manual CSV handling and intermediary data processing. This transition enables near-complete automation of the payroll workflow, reduces administrative bottlenecks, and increases transparency and auditability across the system..
 
 
 ### Getting Started
